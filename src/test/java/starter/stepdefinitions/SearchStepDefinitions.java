@@ -9,14 +9,11 @@ import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import starter.navigation.NavigateTo;
 import starter.search.LookForInformation;
 
-import static com.demo.test.config.serenityConfig.ENV_URL;
-
 public class SearchStepDefinitions {
 
     @Given("{actor} is researching things on the internet")
     public void researchingThings(Actor actor) {
         actor.wasAbleTo(NavigateTo.theSearchHomePage());
-        System.out.println(ENV_URL);
     }
 
     @When("{actor} looks up {string}")
