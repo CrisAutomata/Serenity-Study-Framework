@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '0 4 * * *'  # Runs at 4 AM UTC every day
     - cron: '0 16 * * *'  # Runs at 4 PM UTC every day
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
