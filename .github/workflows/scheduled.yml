@@ -3,6 +3,7 @@ name: Maven Build
 on:
   schedule:
     - cron: '0 4 * * *'  # Runs at 4 AM UTC every day
+    - cron: '0 16 * * *'  # Runs at 4 PM UTC every day
 
 jobs:
   build:
@@ -19,3 +20,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
+    - name: Archive reports
+      uses: actions/upload-artifact@v3
+        with:
+        name: serenity-report
+        path: target/site/serenity
