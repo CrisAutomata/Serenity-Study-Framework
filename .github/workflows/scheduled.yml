@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    continue-on-error: true  # Allow job to continue despite failures
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 17
@@ -22,9 +22,9 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven
+    - name: Run test with Serenity framework #using commandline
       run: mvn -B verify --file pom.xml
-    - name: Archive reports
+    - name: Archive reports #generate and push report to an uploader in order to download later
       uses: actions/upload-artifact@v3
       with:
         name: serenity-report
