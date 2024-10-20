@@ -1,4 +1,4 @@
-name: Maven Build
+name: Demo Github Actions
 
 on:
   schedule:
